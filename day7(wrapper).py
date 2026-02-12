@@ -1,14 +1,13 @@
-def login(login_page):
-    def wrapper(user,password):
-        if user == "admin" and password == "12345":
-            print("Login Succesfull")
-            login_page(user, password)
+def admin(dashboard):
+    def wrapper(user):
+        if user == "admin":
+            dashboard(user)
         else:
-            print("Login fail")
+            print("Access denied")
 
     return wrapper
-@login
-def login_page(user,password):
+@admin
+def dashboard(user):
     print("Login Succesfull")
 
-login_page("admin", "1234")
+dashboard("admin")
